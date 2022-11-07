@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import HomeService from '../HomeService/HomeService';
 
 const Home = () => {
@@ -24,7 +24,8 @@ services.map(service=><HomeService key={service._id} service={service}></HomeSer
     }
 </div>
 <div className='w-full flex justify-center'>
-<button className="btn btn-primary  ">See All</button>
+    <Link to='/services'><button className="btn btn-primary  ">See All</button></Link>
+
 </div>
 
         </div>
