@@ -1,10 +1,22 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../AuthContext/AuthContext';
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-    const {user}=useContext(UserContext);
-    console.log(user);
+    const {handleGoogleLogin}=useContext(UserContext);
+    const provider=new GoogleAuthProvider();
+
+    // console.log(user,handleGoogleLogin);
+    const googleLogIn=()=>{
+handleGoogleLogin(provider)
+.then((result) => {
+    console.log(result);
+  }).catch((error) => {
+console.error(error);
+  });
+
+    }
     return (
         
               <div className="hero ">
@@ -33,7 +45,7 @@ const Login = () => {
           <button className="btn btn-primary">Login</button>
         </div>
       </form>
-      <button  className="btn btn-primary">Google</button>
+      <button onClick={googleLogIn}  className="btn btn-primary">Google</button>
     </div>
   </div>
   
