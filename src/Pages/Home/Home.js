@@ -1,9 +1,18 @@
-import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+// import { data } from 'autoprefixer';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import HomeService from '../HomeService/HomeService';
 
 const Home = () => {
-    const services=useLoaderData();
+    // const services=useLoaderData();
+    const [services,setServices]=useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:5000/')
+        .then(res=>res.json())
+        .then(data=>{
+            setServices(data)
+        })
+    },[])
     
     return (
         <div>
