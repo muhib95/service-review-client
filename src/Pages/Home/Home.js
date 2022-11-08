@@ -33,7 +33,7 @@ services.map(service=><HomeService key={service._id} service={service}></HomeSer
     }
 </div>
 <div className='w-full flex justify-center'>
-    <Link to='/services'><button className="btn btn-primary  ">See All</button></Link>
+    <Link to='/services'><button className="btn btn-primary mb-5 ">See All</button></Link>
 
 </div>
 
