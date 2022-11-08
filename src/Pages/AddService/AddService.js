@@ -30,6 +30,7 @@ const AddService = () => {
         setService(newService);
         
         }
+        
     return (
         <div>
               
