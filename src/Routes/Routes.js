@@ -1,5 +1,6 @@
 import Main from "../Main/Main";
 import AddService from "../Pages/AddService/AddService";
+import Blogs from "../Pages/Blogs/Blogs";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MyReview from "../Pages/MyReview/MyReview";
@@ -44,6 +45,11 @@ export const router=createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path:'/blogs',
+                element:<Blogs></Blogs>
+
             }
         ]
     }

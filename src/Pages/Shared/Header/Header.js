@@ -57,7 +57,7 @@ console.log(user?.email);
     <li><Link to='/register'>Register</Link></li>
         </>
       }
-     
+      <li><Link to='/blogs'>Blogs</Link></li>
    
 
  
