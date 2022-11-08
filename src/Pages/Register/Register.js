@@ -1,7 +1,42 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../AuthContext/AuthContext';
 
 const Register = () => {
+    const {register,userUpdate}=useContext(UserContext);
+
+    const handleRegister=(event)=>{
+        event.preventDefault();
+        const form=event.target;
+        const name=form.name.value;
+        const image=form.image.value;
+        const email=form.email.value;
+        const password=form.password.value;
+        register(email,password)
+		.then((result) => {
+            handleUserUpdate(name,image);
+			form.reset();
+		})
+		.catch((error) => {
+			form.reset();
+		
+		});
+
+    }
+    const handleUserUpdate=(name,photoUrl)=>{
+		const profile={
+			displayName:name,
+			photoURL:photoUrl
+		}
+		userUpdate(profile)
+		.then(() => {
+		
+		}).catch((error) => {
+			
+		});
+
+	}
+   
     return (
         <div className="hero ">
         <div className="hero-content flex-col lg:flex-row">
@@ -10,18 +45,18 @@ const Register = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
               <h1 className="text-5xl font-bold">Register</h1>
-            <form  className="card-body">
+            <form onSubmit={handleRegister}  className="card-body">
             <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
-                <input type="text" placeholder="name" className="input input-bordered" required/>
+                <input name='name' type="text" placeholder="name" className="input input-bordered" required/>
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Img url</span>
                 </label>
-                <input type="text" placeholder="image" className="input input-bordered" required/>
+                <input name='image' type="text" placeholder="image" className="input input-bordered" required/>
               </div>
               <div className="form-control">
                 <label className="label">
