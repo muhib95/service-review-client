@@ -4,8 +4,7 @@ import { UserContext } from '../../../AuthContext/AuthContext';
 
 const Header = () => {
     const {user,logOut}=useContext(UserContext);
-    console.log(user,logOut);
-
+console.log(user?.email);
     const handleLogOut=()=>{
         logOut()
         .then(() => {
@@ -45,13 +44,25 @@ const Header = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
       <li><Link to='/'>Home</Link></li>
-      <li><Link to='/orderreview'>Order Review</Link></li>
+      {
+      user?.email?
+        <>
+         <li><Link to='/myreview'>My Review</Link></li>
+      <li><Link to='/addservice'>Add service</Link></li>
+      <li><button onClick={handleLogOut}>Log out</button></li>
+        </>
+        :
+        <>
+              <li><Link to='/login'>Login</Link></li>
+    <li><Link to='/register'>Register</Link></li>
+        </>
+      }
+     
    
-      <li><Link to='/login'>Login</Link></li>
- <li><Link to='/register'>Register</Link></li>
+
  
     
-    <li><button onClick={handleLogOut}>Log out</button></li>
+    
 
 
      
