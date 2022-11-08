@@ -7,35 +7,41 @@ const auth=getAuth(app);
 const AuthContext = ({children}) => {
     
     const [user,setUser]=useState(null);
+    const [loading,setLoading]=useState(true);
     // email pass login
 const logIn=(email, password)=>{
+  setLoading(true);
     return signInWithEmailAndPassword(auth,email,password);
   
   }
   useEffect(()=>{
     const unSubscribe=onAuthStateChanged(auth,(currentUser)=>{
       setUser(currentUser);
+      setLoading(false);
     });
     return ()=>unSubscribe();
   
   },[])
 
   const logOut=()=>{
+    setLoading(true);
     return signOut(auth);
   }
 
 const register=(email,password)=>{
+  setLoading(true);
     return createUserWithEmailAndPassword(auth,email,password);
 }
 const userUpdate=(profile)=>{
     return updateProfile(auth.currentUser,profile)
   }
 const handleGoogleLogin=(Provider)=>{
+  setLoading(true);
     return signInWithPopup(auth,Provider);
 }
 
     
-    const info={user,logIn,handleGoogleLogin,register,logOut,userUpdate};
+    const info={user,logIn,handleGoogleLogin,register,logOut,userUpdate,loading,setLoading};
     return (
         <UserContext.Provider value={info}>
             {children}
