@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MyReviewRows = ({myReview,handleDelete}) => {
     const {_id,displayName,name,review}=myReview;
@@ -30,7 +31,8 @@ const MyReviewRows = ({myReview,handleDelete}) => {
           </td>
           <td>{displayName?displayName:'no user name'}</td>
           <th>
-            <button  className="btn btn-info">Update</button>
+            <Link to={`/updateproduct/${_id}`}><button   className="btn btn-info">Update</button></Link>
+            
           </th>
         </tr>
        

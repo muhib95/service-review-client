@@ -7,6 +7,7 @@ import MyReview from "../Pages/MyReview/MyReview";
 import Register from "../Pages/Register/Register";
 import Services from "../Pages/Services/Services";
 import ServicesDetails from "../Pages/ServicesDetails/ServicesDetails";
+import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct"
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -50,6 +51,11 @@ export const router=createBrowserRouter([
                 path:'/blogs',
                 element:<Blogs></Blogs>
 
+            },
+            {
+                path:'/updateproduct/:id',
+                element:<UpdateProduct></UpdateProduct>,
+                loader:({params})=>fetch(`http://localhost:5000/updateproduct/${params.id}`)
             }
         ]
     }
