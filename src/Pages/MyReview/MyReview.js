@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const MyReview = () => {
-    const {user}=useContext(UserContext);
+    const {user,logOut}=useContext(UserContext);
     useTitle('My review');
     const notify = () =>  toast.success("Delete success !", {
       position: toast.POSITION.TOP_CENTER
@@ -19,9 +19,18 @@ const MyReview = () => {
             authorization:`Bearer ${localStorage.getItem('user-token')}`
           }
         })
-        .then(res=>res.json())
-        .then(data=>setReviews(data))
-    },[email])
+        .then(res=>{
+          if(res.status===401 || res.status===403){
+              logOut()
+          }
+          return res.json()
+        })
+        .then(data=>{
+          console.log(data)
+          setReviews(data)
+        }
+          )
+    },[email,logOut])
    
     const handleDelete=(id)=>{
         const process=window.confirm('Are you want to delete');
