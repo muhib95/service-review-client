@@ -15,9 +15,38 @@ const MyReview = () => {
         <div>
             <h1>All my reviews</h1>
             <h2>{myReviews.length}</h2>
-            {
+            <div className="overflow-x-auto w-full">
+  <table className="table w-full">
+    
+    <thead>
+      <tr>
+        <th>
+          <label>
+            <h2>My all reviews</h2>
+          </label>
+        </th>
+        <th>Service name</th>
+        <th>Review</th>
+        <th>User name</th>
+        <th></th>
+      </tr>
+    </thead>
+    {
             myReviews.map(myReview=><MyReviewRows key={myReview._id} myReview={myReview}></MyReviewRows>)    
             }
+    <tfoot>
+      <tr>
+        <th></th>
+        <th>Service name</th>
+        <th>Review</th>
+        <th>User name</th>
+        <th></th>
+      </tr>
+    </tfoot>
+    
+  </table>
+</div>
+          
         </div>
     );
 };
