@@ -1,14 +1,19 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../AuthContext/AuthContext';
 import useTitle from '../../hook/useTitle';
 
 const Register = () => {
     const {register,userUpdate}=useContext(UserContext);
     useTitle('Register');
+    const [load,setLoad]=useState(false)
+    let navigate=useNavigate();
+    let location=useLocation();
+    let from=location.state?.from.pathname || "/";
 
     const handleRegister=(event)=>{
         event.preventDefault();
+        setLoad(true);
         const form=event.target;
         const name=form.name.value;
         const image=form.image.value;
@@ -16,10 +21,14 @@ const Register = () => {
         const password=form.password.value;
         register(email,password)
 		.then((result) => {
+      setLoad(false);
             handleUserUpdate(name,image);
 			form.reset();
+      navigate(from, { replace: true });
+      
 		})
 		.catch((error) => {
+      setLoad(false);
 			form.reset();
 		
 		});
@@ -82,6 +91,13 @@ const Register = () => {
             </form>
           </div>
         </div>
+        {
+                  load?
+                  <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400" ></div>
+                  :
+                  <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400 hidden" ></div>
+
+                }
       </div>
     );
 };
