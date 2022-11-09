@@ -93,7 +93,7 @@ const ServicesDetails = () => {
         
         :
         <>
-        <h2>Please Login for Review <Link to='/login' className="label-text-alt link link-hover">Login</Link></h2>
+        <h2 className='text-lg text-orange-700'>Please Login for Review <Link to='/login' className="text-blue-700 label-text-alt link link-hover">Login</Link></h2>
         </>
 
 

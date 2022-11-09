@@ -10,7 +10,7 @@ const ServiceItem = ({service}) => {
   <figure><img src={img} alt='' /></figure>
   <div className="card-body">
     <h2 className="card-title">{name}</h2>
-    <p>{dis>100? dis.slice(0,100):dis}</p>
+    <p>{dis.slice(0,50)}</p>
     <div className="card-actions justify-end">
         <p>Price: {price}</p>
         <p>Rating: {ratings}</p>

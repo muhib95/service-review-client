@@ -22,7 +22,7 @@ export const router=createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                // loader:()=>fetch('http://localhost:5000/')
+                
             },
             {
                 path:'/services',
@@ -39,7 +39,7 @@ export const router=createBrowserRouter([
             },
             {
                 path:'/addservice',
-                element:<AddService></AddService>
+                element:<PrivateRoute><AddService></AddService></PrivateRoute>
 
             },
             {
@@ -57,7 +57,7 @@ export const router=createBrowserRouter([
             },
             {
                 path:'/updateproduct/:id',
-                element:<UpdateReview></UpdateReview>,
+                element:<PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:5000/updateproduct/${params.id}`)
             }
         ]
