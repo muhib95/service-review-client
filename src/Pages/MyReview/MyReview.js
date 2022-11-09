@@ -2,10 +2,15 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../AuthContext/AuthContext';
 import useTitle from '../../hook/useTitle';
 import MyReviewRows from '../MyReviewRows/MyReviewRows';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyReview = () => {
     const {user}=useContext(UserContext);
     useTitle('My review');
+    const notify = () =>  toast.success("Delete success !", {
+      position: toast.POSITION.TOP_CENTER
+    });
     const email=user?.email||'undefined';
     const [myReviews,setReviews]=useState([]);
     useEffect(()=>{
@@ -26,7 +31,7 @@ const MyReview = () => {
          if(data.deletedCount>=0){
             const remain=myReviews.filter(dr=>dr._id!==id)
             setReviews(remain);
-            alert('Delete order succesfully')
+            notify();
 
          }
           })
@@ -80,6 +85,7 @@ const MyReview = () => {
         </div>
         </>
 }
+<ToastContainer />
       </div>
    
     );

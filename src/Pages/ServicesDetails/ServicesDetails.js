@@ -3,10 +3,19 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { UserContext } from '../../AuthContext/AuthContext';
 import useTitle from '../../hook/useTitle';
 import ServiceReview from '../ServiceReview/ServiceReview';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const ServicesDetails = () => {
     const ref = useRef(null);
     const {user}=useContext(UserContext);
+
+    const notify = () =>  toast.success("Review added !", {
+      position: toast.POSITION.TOP_CENTER
+    });
+
     useTitle('Service details');
     const a=useLoaderData();
     const [reviews,setReviews]=useState([]);
@@ -16,6 +25,7 @@ const ServicesDetails = () => {
     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     const { _id,name,price,ratings,dis,img}=a[0];
     console.log(_id);
+ 
     useEffect(()=>{
         fetch(`http://localhost:5000/reviews?id=${_id}`)
         .then(res=>res.json())
@@ -48,8 +58,8 @@ const ServicesDetails = () => {
           .then((data) => {
             console.log(data);
             if(data.acknowledged){
+             notify()
                 sT(true)
-                alert('Successful');
                 ref.current.value='';
         
             }
@@ -108,7 +118,7 @@ const ServicesDetails = () => {
    }
    </div>
 
-   
+   <ToastContainer />
 
         </div>
     );

@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import useTitle from '../../hook/useTitle';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const UpdateReview = () => {
     const review=useLoaderData();
     useTitle('Update review');
     const [update,setUpdate]=useState(review);
-
+    const notify = () =>  toast.success("Review update !", {
+        position: toast.POSITION.TOP_CENTER
+      });
     const handleSubmit=(event)=>{
         event.preventDefault();
         // console.log(update);
@@ -21,7 +25,7 @@ const UpdateReview = () => {
         .then(res=>res.json())
         .then(data=>{
             if(data.modifiedCount>=0){
-                    alert('review updated');
+                notify()
             }
            
         })
@@ -47,6 +51,7 @@ const UpdateReview = () => {
             <label htmlFor="review">Your review<input onChange={handleChange} className="input input-bordered input-primary w-full mt-3"  type="text" name="review" id="" placeholder='review update'/></label><br/>
             <button className="btn btn-secondary mt-2" type="submit">Add update</button>
            </form>
+           <ToastContainer />
         </div>
     );
 };

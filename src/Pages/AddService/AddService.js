@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import useTitle from '../../hook/useTitle';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddService = () => {
     const [service,setService]=useState({});
     useTitle('Add service');
+    const notify = () =>  toast.success("Services added !", {
+        position: toast.POSITION.TOP_CENTER
+      });
     const handleSubmit=(event)=>{
         event.preventDefault();
         fetch('http://localhost:5000/service', {
-            method: 'POST', // or 'PUT'
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
@@ -17,7 +22,7 @@ const AddService = () => {
       .then((data) => {
         console.log(data);
         if(data.acknowledged){
-            alert('Successful');
+            notify()
             event.target.reset();
     
         }
@@ -48,7 +53,7 @@ const AddService = () => {
                
             <button className="btn btn-primary mt-7" type="submit">add user</button>
             </form>
-            
+            <ToastContainer />
         </div>
     );
 };
