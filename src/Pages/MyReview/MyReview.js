@@ -37,9 +37,14 @@ const MyReview = () => {
        
       }
     return (
+      <div>
+        {myReviews.length===0?
+        <h2 className='text-4xl text-red-700 flex justify-center'>No reviews were Added</h2>
+        :
+        <>
         <div>
-            <h1>All my reviews</h1>
-            <h2>{myReviews.length}</h2>
+            <h1 className='text-2xl text-red-500'>All my reviews</h1>
+            <h2>Numbers of Review= {myReviews.length}</h2>
             <div className="overflow-x-auto w-full">
   <table className="table w-full">
     
@@ -73,6 +78,10 @@ const MyReview = () => {
 </div>
           
         </div>
+        </>
+}
+      </div>
+   
     );
 };
 

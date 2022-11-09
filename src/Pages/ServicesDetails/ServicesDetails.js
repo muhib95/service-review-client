@@ -79,12 +79,12 @@ const ServicesDetails = () => {
   </div>
 </div>
 <div>
-    <h2>Here Reviews</h2>
+    <h2 className='text-3xl text-red-500'>Here Reviews</h2>
     {
         user?.email?
         
         <div>
-        <label htmlFor="message">My Textarea</label>
+        <label htmlFor="message" className='text-xl'>Write review</label>
         <textarea className="textarea textarea-primary block" ref={ref} id="message" name="message" />
   
         <button  className="btn btn-active btn-primary mt-3" onClick={handleClick}>Click</button>
