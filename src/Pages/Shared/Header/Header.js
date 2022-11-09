@@ -43,6 +43,7 @@ console.log(user?.email);
     </div>
     <Link  to='/' className=" normal-case text-xl">
       <img className='w-16 hidden md:inline' src={logo} alt="" />
+      <h2>Clean Teeth</h2>
     </Link>
   </div>
   <div className="navbar-center hidden lg:flex">
