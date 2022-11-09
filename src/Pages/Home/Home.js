@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useTitle from '../../hook/useTitle';
 import HomeService from '../HomeService/HomeService';
+import img from '../../asset/home.png'
 
 const Home = () => {
     // const services=useLoaderData();
@@ -20,7 +21,7 @@ const Home = () => {
         <div>
             <div className="hero  bg-base-200">
   <div className="hero-content flex-col lg:flex-row">
-    <img src='https://placeimg.com/260/400/arch' alt='' className="max-w-sm rounded-lg shadow-2xl" />
+    <img src={img} alt='' className="max-w-sm rounded-lg shadow-2xl" />
     <div>
       <h1 className="text-5xl font-bold">Box Office News!</h1>
       <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
