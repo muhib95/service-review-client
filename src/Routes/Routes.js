@@ -9,6 +9,7 @@ import Register from "../Pages/Register/Register";
 import Services from "../Pages/Services/Services";
 import ServicesDetails from "../Pages/ServicesDetails/ServicesDetails";
 import UpdateReview from "../Pages/UpdateReview/UpdateReview";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -34,7 +35,7 @@ export const router=createBrowserRouter([
             },
             {
                 path:'/myreview',
-                element:<MyReview></MyReview>
+                element:<PrivateRoute><MyReview></MyReview></PrivateRoute>
             },
             {
                 path:'/addservice',

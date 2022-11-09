@@ -4,9 +4,9 @@ import { UserContext } from '../AuthContext/AuthContext';
 
 const PrivateRoute = ({children}) => {
    
-        const {user,loader}=useContext(UserContext);
+        const {user,loading}=useContext(UserContext);
         let location =useLocation();
-        if(loader){
+        if(loading){
                 return <h2>Loading...</h2>
         }
         if(user){
