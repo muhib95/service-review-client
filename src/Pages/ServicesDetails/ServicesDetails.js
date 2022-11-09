@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { UserContext } from '../../AuthContext/AuthContext';
+import useTitle from '../../hook/useTitle';
 import ServiceReview from '../ServiceReview/ServiceReview';
 
 const ServicesDetails = () => {
     const ref = useRef(null);
     const {user}=useContext(UserContext);
-
+    useTitle('Service details');
     const a=useLoaderData();
     const [reviews,setReviews]=useState([]);
     const [t,sT]=useState(false);

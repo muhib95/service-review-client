@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../hook/useTitle';
 
 const UpdateReview = () => {
     const review=useLoaderData();
+    useTitle('Update review');
     const [update,setUpdate]=useState(review);
 
     const handleSubmit=(event)=>{

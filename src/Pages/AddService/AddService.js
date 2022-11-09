@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import useTitle from '../../hook/useTitle';
 
 const AddService = () => {
     const [service,setService]=useState({});
+    useTitle('Add service');
     const handleSubmit=(event)=>{
         event.preventDefault();
         fetch('http://localhost:5000/service', {
