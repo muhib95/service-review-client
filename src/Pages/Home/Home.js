@@ -26,12 +26,16 @@ const Home = () => {
     </div>
   </div>
 </div>
+<div>
+    <h2>Services</h2>
 <div className='grid grid-cols-1 md:grid-cols-3 gap-3 my-4'>
   
-    {
+  {
 services.map(service=><HomeService key={service._id} service={service}></HomeService>)
-    }
+  }
 </div>
+</div>
+
 <div className='w-full flex justify-center'>
     <Link to='/services'><button className="btn btn-primary mb-5 ">See All</button></Link>
 
