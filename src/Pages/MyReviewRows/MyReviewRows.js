@@ -1,14 +1,15 @@
 import React from 'react';
 
-const MyReviewRows = ({myReview}) => {
-    const {displayName,name,review}=myReview
+const MyReviewRows = ({myReview,handleDelete}) => {
+    const {_id,displayName,name,review}=myReview;
+    console.log(myReview);
     return (
         <tbody>
       
         <tr>
           <th>
             <label>
-              <button  className="btn btn-warning">X</button>
+              <button onClick={()=>handleDelete(_id)}  className="btn btn-warning">X</button>
             </label>
           </th>
           <td>
