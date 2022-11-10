@@ -9,6 +9,7 @@ const AddService = () => {
     const notify = () =>  toast.success("Services added !", {
         position: toast.POSITION.TOP_CENTER
       });
+    //   service add here...
     const handleSubmit=(event)=>{
         event.preventDefault();
         fetch('https://b6a11-service-review-server-side-muhib95.vercel.app/service', {

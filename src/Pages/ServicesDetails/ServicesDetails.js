@@ -24,7 +24,7 @@ const ServicesDetails = () => {
     let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     const { _id,name,price,ratings,dis,img}=a[0];
- 
+//  get all service related reviews...
     useEffect(()=>{
         fetch(`https://b6a11-service-review-server-side-muhib95.vercel.app/reviews?id=${_id}`)
         .then(res=>res.json())
@@ -46,6 +46,8 @@ const ServicesDetails = () => {
             dt:date+" "+time
 
         };
+// post review here...
+
         fetch('https://b6a11-service-review-server-side-muhib95.vercel.app/review', {
             method: 'POST', 
             headers: {

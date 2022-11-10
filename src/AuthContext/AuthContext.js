@@ -14,6 +14,8 @@ const logIn=(email, password)=>{
     return signInWithEmailAndPassword(auth,email,password);
   
   }
+
+  // get current user
   useEffect(()=>{
     const unSubscribe=onAuthStateChanged(auth,(currentUser)=>{
       setUser(currentUser);
@@ -22,19 +24,23 @@ const logIn=(email, password)=>{
     return ()=>unSubscribe();
   
   },[])
-
+// logout here
   const logOut=()=>{
     setLoading(true);
     return signOut(auth);
   }
+  // register here
 
 const register=(email,password)=>{
   setLoading(true);
     return createUserWithEmailAndPassword(auth,email,password);
 }
+// user update here
 const userUpdate=(profile)=>{
     return updateProfile(auth.currentUser,profile)
   }
+
+  // google log in
 const handleGoogleLogin=(Provider)=>{
   setLoading(true);
     return signInWithPopup(auth,Provider);

@@ -9,6 +9,7 @@ const Home = () => {
     // const services=useLoaderData();
     const [services,setServices]=useState([]);
     useTitle('Home');
+	// home service part here...
     useEffect(()=>{
         fetch('https://b6a11-service-review-server-side-muhib95.vercel.app/')
         .then(res=>res.json())

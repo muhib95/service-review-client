@@ -10,6 +10,7 @@ const Register = () => {
     let navigate=useNavigate();
     let location=useLocation();
     let from=location.state?.from.pathname || "/";
+    // register part here...
 
     const handleRegister=(event)=>{
         event.preventDefault();
@@ -34,6 +35,7 @@ const Register = () => {
 		});
 
     }
+    // user name photo update
     const handleUserUpdate=(name,photoUrl)=>{
 		const profile={
 			displayName:name,

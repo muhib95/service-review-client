@@ -13,6 +13,7 @@ const MyReview = () => {
     });
     const email=user?.email||'undefined';
     const [myReviews,setReviews]=useState([]);
+    // My review get by email...
     useEffect(()=>{
         fetch(`https://b6a11-service-review-server-side-muhib95.vercel.app/myreviews?email=${email}`,{
           headers:{
@@ -31,6 +32,7 @@ const MyReview = () => {
         }
           )
     },[email,logOut])
+    // Delete part here...
    
     const handleDelete=(id)=>{
         const process=window.confirm('Are you want to delete');

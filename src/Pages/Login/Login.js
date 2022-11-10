@@ -12,6 +12,7 @@ const Login = () => {
     let navigate=useNavigate();
     let location=useLocation();
     let from=location.state?.from.pathname || "/";
+    // email pass login
 
  const handleLogin=(event)=>{
     event.preventDefault();
@@ -26,6 +27,8 @@ const Login = () => {
       const currentUser={
         email:result.user.email
        };
+// jwt part here...
+
        fetch('https://b6a11-service-review-server-side-muhib95.vercel.app/jwt',{
         method:'POST',
         headers:{
@@ -43,9 +46,11 @@ const Login = () => {
 		.catch((error) => {
       setLoad(false)
 			form.reset();
+      
 		});
 
  }
+//  google Login...
     const googleLogIn=()=>{
       setLoad(true)
 handleGoogleLogin(provider)
@@ -113,7 +118,7 @@ console.error(error);
 
                 }
                 
-                
+              
                
               </div>
 
