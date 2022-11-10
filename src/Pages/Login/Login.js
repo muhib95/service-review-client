@@ -23,7 +23,6 @@ const Login = () => {
 		.then((result) => {
       setLoad(false)
 			form.reset();
-      // console.log(result.user.email);
       const currentUser={
         email:result.user.email
        };
@@ -36,7 +35,6 @@ const Login = () => {
        })
        .then(res=>res.json())
        .then(data=>{
-        console.log(data)
         localStorage.setItem('user-token',data.token)
         navigate(from,{replace:true});
       })
@@ -64,7 +62,6 @@ handleGoogleLogin(provider)
    })
    .then(res=>res.json())
    .then(data=>{
-    console.log(data)
     localStorage.setItem('user-token',data.token)
     setLoad(false)
     navigate(from, { replace: true });

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const MyReviewRows = ({myReview,handleDelete}) => {
     const {_id,displayName,name,review}=myReview;
-    console.log(myReview);
     return (
         <tbody>
       

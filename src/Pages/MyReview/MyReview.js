@@ -26,7 +26,7 @@ const MyReview = () => {
           return res.json()
         })
         .then(data=>{
-          console.log(data)
+          
           setReviews(data)
         }
           )
@@ -40,7 +40,7 @@ const MyReview = () => {
           })
           .then(res => res.json()) 
           .then(data => {
-         console.log(data);
+         
          if(data.deletedCount>=0){
             const remain=myReviews.filter(dr=>dr._id!==id)
             setReviews(remain);

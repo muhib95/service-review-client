@@ -5,7 +5,6 @@ import logo from '../../../asset/logo.jpg'
 
 const Header = () => {
     const {user,logOut}=useContext(UserContext);
-console.log(user?.email);
     const handleLogOut=()=>{
         logOut()
         .then(() => {

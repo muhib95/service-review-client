@@ -24,7 +24,6 @@ const ServicesDetails = () => {
     let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     const { _id,name,price,ratings,dis,img}=a[0];
-    console.log(_id);
  
     useEffect(()=>{
         fetch(`http://localhost:5000/reviews?id=${_id}`)
@@ -56,7 +55,6 @@ const ServicesDetails = () => {
           })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
             if(data.acknowledged){
              notify()
                 sT(true)
@@ -71,7 +69,6 @@ const ServicesDetails = () => {
       };
 
     
-      console.log(reviews);
 
     return (
         <div className='mt-7'>
