@@ -11,7 +11,7 @@ const AddService = () => {
       });
     const handleSubmit=(event)=>{
         event.preventDefault();
-        fetch('http://localhost:5000/service', {
+        fetch('https://b6a11-service-review-server-side-muhib95.vercel.app/service', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

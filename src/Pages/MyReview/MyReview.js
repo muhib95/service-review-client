@@ -14,7 +14,7 @@ const MyReview = () => {
     const email=user?.email||'undefined';
     const [myReviews,setReviews]=useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/myreviews?email=${email}`,{
+        fetch(`https://b6a11-service-review-server-side-muhib95.vercel.app/myreviews?email=${email}`,{
           headers:{
             authorization:`Bearer ${localStorage.getItem('user-token')}`
           }
@@ -35,7 +35,7 @@ const MyReview = () => {
     const handleDelete=(id)=>{
         const process=window.confirm('Are you want to delete');
         if(process){
-          fetch(`http://localhost:5000/reviews/${id}`, {
+          fetch(`https://b6a11-service-review-server-side-muhib95.vercel.app/reviews/${id}`, {
             method: 'DELETE',
           })
           .then(res => res.json()) 

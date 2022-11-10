@@ -26,7 +26,7 @@ const ServicesDetails = () => {
     const { _id,name,price,ratings,dis,img}=a[0];
  
     useEffect(()=>{
-        fetch(`http://localhost:5000/reviews?id=${_id}`)
+        fetch(`https://b6a11-service-review-server-side-muhib95.vercel.app/reviews?id=${_id}`)
         .then(res=>res.json())
         .then(data=>setReviews(data))
       },[_id,t])
@@ -46,7 +46,7 @@ const ServicesDetails = () => {
             dt:date+" "+time
 
         };
-        fetch('http://localhost:5000/review', {
+        fetch('https://b6a11-service-review-server-side-muhib95.vercel.app/review', {
             method: 'POST', 
             headers: {
               'Content-Type': 'application/json',

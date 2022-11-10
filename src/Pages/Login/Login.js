@@ -26,7 +26,7 @@ const Login = () => {
       const currentUser={
         email:result.user.email
        };
-       fetch('http://localhost:5000/jwt',{
+       fetch('https://b6a11-service-review-server-side-muhib95.vercel.app/jwt',{
         method:'POST',
         headers:{
           'Content-Type':'application/json',
@@ -53,7 +53,7 @@ handleGoogleLogin(provider)
   const currentUser={
     email:result.user.email
    };
-   fetch('http://localhost:5000/jwt',{
+   fetch('https://b6a11-service-review-server-side-muhib95.vercel.app/jwt',{
     method:'POST',
     headers:{
       'Content-Type':'application/json',

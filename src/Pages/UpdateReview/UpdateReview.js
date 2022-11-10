@@ -13,7 +13,7 @@ const UpdateReview = () => {
       });
     const handleSubmit=(event)=>{
         event.preventDefault();
-        fetch(`http://localhost:5000/reviews/${review._id}`,{
+        fetch(`https://b6a11-service-review-server-side-muhib95.vercel.app/reviews/${review._id}`,{
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',

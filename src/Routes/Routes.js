@@ -31,7 +31,7 @@ export const router=createBrowserRouter([
             {
                 path:'/servicesdetails/:id',
                 element:<ServicesDetails></ServicesDetails>,
-                loader:({params})=>fetch(`http://localhost:5000/servicesdetails/${params.id}`)
+                loader:({params})=>fetch(`https://b6a11-service-review-server-side-muhib95.vercel.app/servicesdetails/${params.id}`)
             },
             {
                 path:'/myreview',
@@ -58,7 +58,7 @@ export const router=createBrowserRouter([
             {
                 path:'/updateproduct/:id',
                 element:<PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/updateproduct/${params.id}`)
+                loader:({params})=>fetch(`https://b6a11-service-review-server-side-muhib95.vercel.app/updateproduct/${params.id}`)
             }
         ]
     }
